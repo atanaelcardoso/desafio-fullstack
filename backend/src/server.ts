@@ -1,16 +1,7 @@
-import express from 'express';
-import type { Request, Response } from 'express';
+import App from "./App.js";
 
-const app = express();
-const PORT = 3333;
+const PORT = 3000;
 
-app.use(express.json());
-
-app.get('/', (req: Request, res: Response) => {
-    res.json({ message: 'Hello, World!' });
+App.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Servidor escutando globalmente na porta ${PORT}`);
 });
-
-app.listen(PORT, () => {
-    console.log(`🚀 Servido rodando na http://localhost:${PORT}`);
-});
-
