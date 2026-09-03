@@ -10,10 +10,22 @@ export function useTaskState() {
     setTasks(newTasks);
   }, []);
 
+  const removeTask = useCallback((id: string) => {
+    setTasks((currentTasks) => currentTasks.filter(task => task.id !== id));
+  }, []);
+
+  const updateTask = useCallback((updatedTask: Task) => {
+    setTasks((currentTasks) =>
+      currentTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+    );
+  }, []);
+
   return {
     tasks,
     loading,
     setLoading,
     setTasksList,
+    removeTask,
+    updateTask,
   };
 }

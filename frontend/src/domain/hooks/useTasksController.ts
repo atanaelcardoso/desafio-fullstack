@@ -37,7 +37,9 @@ export function useTasksController() {
 
   const handleUpdate = async (id: string, title: string, status: TaskStatus) => {
     try {
-      await updateUseCase.execute(id, title, status);
+      const updatedTask = await updateUseCase.execute(id, title, status);
+      state.updateTask(updatedTask);
+      
     } catch (error: any) {
       alert(error.message || 'Falha ao atualizar dados.');
       throw error;
@@ -47,6 +49,8 @@ export function useTasksController() {
   const handleDelete = async (id: string) => {
     try {
       await deleteUseCase.execute(id);
+      state.removeTask(id);
+
     } catch {
       alert('Erro ao remover tarefa.');
     }

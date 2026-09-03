@@ -3,7 +3,12 @@ import type { Task } from '../entity/tasks';
 
 export class CreateTaskUseCase {
   async execute(title: string): Promise<Task> {
-    const response = await api.post<Task>('/tasks', { title });
-    return response.data;
+    try {
+      const response = await api.post('/tasks', { title });
+      return response.data;
+    } catch (error) {
+      console.error('Error creating task:', error);
+      throw error;
+    }
   }
 }
