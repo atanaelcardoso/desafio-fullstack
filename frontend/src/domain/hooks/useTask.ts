@@ -20,6 +20,10 @@ export function useTaskState() {
     );
   }, []);
 
+  const addTaskToState = useCallback((newTask: Task) => {
+    setTasks((currentTasks) => [...currentTasks, newTask]);
+  }, []);
+
   return {
     tasks,
     loading,
@@ -27,5 +31,6 @@ export function useTaskState() {
     setTasksList,
     removeTask,
     updateTask,
+    addTaskToState,
   };
 }

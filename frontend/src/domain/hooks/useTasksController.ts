@@ -29,7 +29,8 @@ export function useTasksController() {
 
   const handleCreate = async (title: string) => {
     try {
-      await createUseCase.execute(title);
+      const createdTask = await createUseCase.execute(title);
+      state.addTaskToState(createdTask);
     } catch {
       alert('Falha ao registrar nova tarefa.');
     }
