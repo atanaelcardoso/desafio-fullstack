@@ -18,6 +18,7 @@ export default function App() {
   const [taskTitle, setTaskTitle] = useState('');
   const [filter, setFilter] = useState<TaskStatus | ''>('');
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+  const [showPassword, setShowPassword] = useState('');
 
   useEffect(() => {
     if (signed) {
@@ -42,7 +43,28 @@ export default function App() {
           <div className="auth-card">
             <h2>{view === 'login' ? 'Acesso ao Sistema' : 'Nova Conta'}</h2>
             <Input type="email" placeholder="E-mail" value={email} onChange={e => setEmail(e.target.value)} />
-            <Input type="password" placeholder="Senha" value={password} onChange={e => setPassword(e.target.value)} />
+            <div className="password-container">
+              <Input 
+                type={showPassword === "sim" && password.length > 0 ? "text" : "password"} 
+                placeholder="Senha" 
+                value={password} 
+                onChange={e => {
+                  setPassword(e.target.value);
+                  if (e.target.value.length === 0) setShowPassword("");
+                }} 
+              />
+
+              {password.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(prev => prev === "sim" ? "" : "sim")}
+                  className="password-toggle-btn"
+                >
+                  {showPassword === "sim" ? 'Ocultar' : 'Mostrar'}
+                </button>
+              )}
+            </div>
+
             <Button onClick={async () => {
               try {
                 if (view === 'login') {
