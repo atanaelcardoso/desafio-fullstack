@@ -1,10 +1,11 @@
-import { inMemoryDatabase } from "../../../infra/database/Database.js";
+import { prisma } from "../../../infra/database/prisma.js";
 import { comparePassword, generateToken } from "../../../utils/security.js";
-
 
 export class LoginUseCase {
   async execute(email: string, password: string): Promise<{ token: string; userId: string }> {
-    const user = inMemoryDatabase.users.find(u => u.email === email);
+   const user = await prisma.user.findFirst({
+      where: { email }
+    });
     
     if (!user || !user.password || !(await comparePassword(password, user.password))) {
       throw new Error('Credenciais inválidas (e-mail ou senha incorretos).');

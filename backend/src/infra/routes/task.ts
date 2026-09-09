@@ -7,10 +7,10 @@ const taskController = new TaskController();
 
 taskRoutes.use(authMiddleware);
 
-taskRoutes.post('/', taskController.create);
-taskRoutes.get('/', taskController.list);
-taskRoutes.get('/:id', taskController.getById);
-taskRoutes.put('/:id', taskController.update);
-taskRoutes.delete('/:id', taskController.delete);
+taskRoutes.post('/', (req, res) => taskController.create(req, res));
+taskRoutes.get('/', (req, res) => taskController.list(req, res));
+taskRoutes.get('/:id', (req, res) => taskController.getById(req, res));
+taskRoutes.put('/:id', (req, res) => taskController.update(req, res));
+taskRoutes.delete('/:id', (req, res) => taskController.delete(req, res));
 
 export { taskRoutes };
