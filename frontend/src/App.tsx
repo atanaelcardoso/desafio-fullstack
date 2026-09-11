@@ -7,6 +7,8 @@ import { Input } from './components/input';
 import { Button } from './components/button';
 import { DefaultLayout } from './layout/defaultLayout';
 
+import { toast } from 'react-toastify';
+
 export default function App() {
   const { signed, login, register } = useContext(AuthContext);
   const taskController = useTasksController();
@@ -69,15 +71,19 @@ export default function App() {
               try {
                 if (view === 'login') {
                   await login(email, password);
+                  toast.success('Conta criada com sucesso! Redirecionando...');
+
                   setView('list');
                   navigate('/tasks');
                 } else {
                   await register(email, password);
-                  alert('Registrado!');
+                  toast.success('Registrado com sucesso!');
+
                   setView('login');
                   navigate('/login');
                 }
-              } catch { alert('Erro na autenticação. Verifique suas credenciais.'); }
+              } catch { 
+                toast.error('Erro na autenticação. Verifique suas credenciais.'); }
             }}>{view === 'login' ? 'Entrar' : 'Salvar Registro'}</Button>
             <p className="auth-link" onClick={() => {
               setView(view === 'login' ? 'register' : 'login');
@@ -98,10 +104,11 @@ export default function App() {
             <Button onClick={async () => {
               try {
                 await register(email, password);
-                alert('Registrado!');
+                toast.success('Registrado com sucesso!');
                 setView('login');
                 navigate('/login');
-              } catch { alert('Erro na autenticação. Verifique suas credenciais.'); }
+              } catch { 
+                toast.error('Erro na autenticação. Verifique suas credenciais.'); }
             }}>Salvar Registro</Button>
             <p className="auth-link" onClick={() => { setView('login'); navigate('/login'); }}>
               Fazer Login

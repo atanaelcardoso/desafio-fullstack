@@ -6,6 +6,7 @@ import { UpdateTaskUseCase } from '../useCase/updateTask';
 import { DeleteTaskUseCase } from '../useCase/deleteTaks';
 import type { TaskStatus } from '../entity/tasks';
 
+import { toast } from 'react-toastify';
 
 export function useTasksController() {
   const state = useTaskState();
@@ -21,7 +22,7 @@ export function useTasksController() {
       const data = await listUseCase.execute(status);
       state.setTasksList(data);
     } catch {
-      alert('Erro ao processar listagem de tarefas.');
+      toast.error('Erro ao processar listagem de tarefas.');
     } finally {
       state.setLoading(false);
     }
@@ -32,7 +33,7 @@ export function useTasksController() {
       const createdTask = await createUseCase.execute(title);
       state.addTaskToState(createdTask);
     } catch {
-      alert('Falha ao registrar nova tarefa.');
+      toast.error('Falha ao registrar nova tarefa.');
     }
   };
 
@@ -42,7 +43,7 @@ export function useTasksController() {
       state.updateTask(updatedTask);
       
     } catch (error: any) {
-      alert(error.message || 'Falha ao atualizar dados.');
+      toast.error(error.message || 'Falha ao atualizar dados.');
       throw error;
     }
   };
@@ -53,7 +54,7 @@ export function useTasksController() {
       state.removeTask(id);
 
     } catch {
-      alert('Erro ao remover tarefa.');
+      toast.error('Erro ao remover tarefa.');
     }
   };
 
