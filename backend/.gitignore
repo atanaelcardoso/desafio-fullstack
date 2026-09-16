@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Arquivos locais de Banco de Dados (SQLite)
+*.db
+*.db-journal
+prisma/dev.db

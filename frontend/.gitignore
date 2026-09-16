@@ -9,11 +9,6 @@ build/
 .env.local
 .env.*.local
 
-# Arquivos locais de Banco de Dados (SQLite)
-*.db
-*.db-journal
-prisma/dev.db
-
 # Logs do NPM e Docker
 *.log
 .docker/
