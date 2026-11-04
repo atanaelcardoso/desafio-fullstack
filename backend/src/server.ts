@@ -1,6 +1,6 @@
 import App from "./App.js";
 
-const PORT = 3000;
+const PORT = Number(process.env.PORT ?? 3000);
 
 App.get('/', (req, res) => {
   res.send(`
