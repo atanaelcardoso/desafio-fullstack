@@ -5,7 +5,7 @@ export const api = axios.create({
     import.meta.env.VITE_API_URL ||
     (import.meta.env.DEV
       ? 'http://localhost:3000'
-      : 'https://desafio-fullstack-lc5x.onrender.com'),
+      : 'https://desafio-backend-4srr.onrender.com'),
 });
 
 api.interceptors.request.use((config) => {
