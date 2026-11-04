@@ -4,7 +4,7 @@
 Seja bem-vindo(a)! Nessa etapa gostaríamos de conhecer melhor a sua criatividade e suas habilidades, avaliando  sua capacidade técnica como candidato(a) à vaga de Desenvolvedor Full-stack Júnior.
 
 ## Hospedagem
-- Aplicação em produção: https://desafio-fullstack-lc5x.onrender.com
+- Aplicação em produção: https://desafio-tasks-frontend.onrender.com
 
 ### Deploy no Render
 - Backend: configure o diretório raiz como `backend`, o comando de build como `npm install` e o comando de início como `npm start`.
