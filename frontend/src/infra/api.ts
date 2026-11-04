@@ -1,11 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL:
-    import.meta.env.VITE_API_URL ||
-    (import.meta.env.DEV
-      ? 'http://localhost:3000'
-      : 'https://desafio-backend-4srr.onrender.com'),
+  baseURL: 'https://desafio-backend-4srr.onrender.com',
 });
 
 api.interceptors.request.use((config) => {
