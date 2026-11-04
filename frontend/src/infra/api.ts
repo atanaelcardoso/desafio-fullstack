@@ -1,8 +1,7 @@
 import axios from 'axios';
-const isLocal = import.meta.env.DEV;
 
 export const api = axios.create({
-  baseURL: isLocal ? 'http://localhost:3000' : '/',
+  baseURL: 'https://onrender.com', 
 });
 
 api.interceptors.request.use((config) => {
