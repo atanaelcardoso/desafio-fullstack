@@ -3,6 +3,9 @@
 # 🤓 Desafio Desenvolvedor Full Stack Júnior Obuc
 Seja bem-vindo(a)! Nessa etapa gostaríamos de conhecer melhor a sua criatividade e suas habilidades, avaliando  sua capacidade técnica como candidato(a) à vaga de Desenvolvedor Full-stack Júnior.
 
+## Hospedagem
+- Aplicação em produção: https://desafio-fullstack-lc5x.onrender.com
+
 ## Instruções
 - Criar um repositório a partir desse modelo;
 - Codificar sua solução.
