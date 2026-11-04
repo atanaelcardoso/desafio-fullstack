@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://desafio-fullstack-lc5x.onrender.com',
 });
 
 api.interceptors.request.use((config) => {
