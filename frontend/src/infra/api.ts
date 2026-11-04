@@ -1,7 +1,8 @@
 import axios from 'axios';
+const isLocal = import.meta.env.DEV;
 
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BACKEND_URL,
+  baseURL: isLocal ? 'http://localhost:3000' : '/',
 });
 
 api.interceptors.request.use((config) => {
