@@ -6,6 +6,11 @@ Seja bem-vindo(a)! Nessa etapa gostaríamos de conhecer melhor a sua criatividad
 ## Hospedagem
 - Aplicação em produção: https://desafio-fullstack-lc5x.onrender.com
 
+### Deploy no Render
+- Backend: configure o diretório raiz como `backend`, o comando de build como `npm install` e o comando de início como `npm start`.
+- O comando de início sincroniza o schema SQLite antes de iniciar a API.
+- O SQLite usa o disco local do serviço; em hospedagem sem disco persistente, os dados podem ser perdidos ao reiniciar ou fazer novo deploy.
+
 ## Instruções
 - Criar um repositório a partir desse modelo;
 - Codificar sua solução.
